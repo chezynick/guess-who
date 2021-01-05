@@ -6,12 +6,15 @@ import Container from './components/Container';
 import { Data } from './components/Data';
 import Questions from './components/Questions';
 import NewGame from './components/NewGame';
+import WinnerBox from './components/WinnerBox';
 
 function App() {
 	const [players, setPlayers] = useState(Data);
 	const [questionDisplay, setQuestionDisplay] = useState(false);
 	const [chosenPlayer, setChosenPlayer] = useState([]);
 	const [newDisplay, setNewDisplay] = useState(true);
+	const [winner, setWinner] = useState(false);
+	const [highScore, setHighScore] = useState(0);
 	//score state
 	const [score, setScore] = useState(300);
 	//function to create random number which will form new guess who player
@@ -93,12 +96,31 @@ function App() {
 			changeDisplay();
 		}
 	};
+	//winner function
+	const weHaveAWinner = () => {
+		setWinner(true);
+	};
+	const PlayAgain = () => {
+		setPlayers(Data);
+		getRandomInt(1, 25);
+		setScore(300);
+		setWinner(false);
+	};
 	return (
 		<div className="App">
 			<Header changeDisplay={changeDisplay} score={score} />
 			{newDisplay ? <NewGame getRandomInt={getRandomInt} /> : ''}
-
-			<Container players={players} chosenPlayer={chosenPlayer} newScore={newScore} />
+			{winner ? (
+				<WinnerBox score={score} chosenPlayer={chosenPlayer} highScore={highScore} PlayAgain={PlayAgain} />
+			) : (
+				''
+			)}
+			<Container
+				players={players}
+				chosenPlayer={chosenPlayer}
+				newScore={newScore}
+				weHaveAWinner={weHaveAWinner}
+			/>
 			{questionDisplay ? (
 				<Questions changeDisplay={changeDisplay} reducePlayers={reducePlayers} newScore={newScore} />
 			) : (

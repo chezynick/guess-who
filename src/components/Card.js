@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Card = ({ player, chosenPlayer, newScore }) => {
+const Card = ({ player, chosenPlayer, newScore, weHaveAWinner }) => {
 	const clickHandler = (player) => {
 		if (player === chosenPlayer.name) {
-			alert('you have won!');
+			weHaveAWinner();
 		} else {
 			newScore(50);
 		}
