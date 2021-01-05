@@ -27,6 +27,9 @@ function App() {
 	//score function
 	const newScore = (points) => {
 		setScore(score - points);
+		if (score <= 0) {
+			alert('you lose');
+		}
 		return score;
 	};
 
@@ -74,6 +77,19 @@ function App() {
 				const result = players.filter((player) => player.mullet === false);
 				setPlayers(result);
 			}
+			changeDisplay();
+		} else if (item === 'sidies') {
+			if (chosenPlayer.sidies === true) {
+				const result = players.filter((player) => player.sidies === true);
+				setPlayers(result);
+			} else {
+				const result = players.filter((player) => player.sidies === false);
+				setPlayers(result);
+			}
+			changeDisplay();
+		} else if (item === 'balding' || item === 'blonde' || item === 'brown') {
+			const result = players.filter((player) => player.hair === chosenPlayer.hair);
+			setPlayers(result);
 			changeDisplay();
 		}
 	};

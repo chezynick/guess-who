@@ -2,9 +2,10 @@ import React from 'react';
 
 const Card = ({ player, chosenPlayer, newScore }) => {
 	const clickHandler = (player) => {
-		newScore(50);
 		if (player === chosenPlayer.name) {
 			alert('you have won!');
+		} else {
+			newScore(50);
 		}
 	};
 
