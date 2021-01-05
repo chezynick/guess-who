@@ -19,6 +19,7 @@
   "homepage": "https://chezynick.github.io/guess-who",
   "scripts": {
     "start": "craco start",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "craco build",
     "test": "craco test",
