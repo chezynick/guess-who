@@ -12,6 +12,8 @@ function App() {
 	const [questionDisplay, setQuestionDisplay] = useState(false);
 	const [chosenPlayer, setChosenPlayer] = useState([]);
 	const [newDisplay, setNewDisplay] = useState(true);
+	//score state
+	const [score, setScore] = useState(300);
 	//function to create random number which will form new guess who player
 	const getRandomInt = (min, max) => {
 		min = Math.ceil(min);
@@ -22,6 +24,12 @@ function App() {
 		setNewDisplay(false);
 		return chosenPlayer;
 	};
+	//score function
+	const newScore = (points) => {
+		setScore(score - points);
+		return score;
+	};
+
 	//function to render question box
 	const changeDisplay = () => {
 		setQuestionDisplay(!questionDisplay);
@@ -29,6 +37,7 @@ function App() {
 	console.log(chosenPlayer);
 	//array reducer
 	const reducePlayers = (item) => {
+		newScore(50);
 		if (item === 'beard') {
 			if (chosenPlayer.beard === true) {
 				const result = players.filter((player) => player.beard === true);
@@ -70,11 +79,15 @@ function App() {
 	};
 	return (
 		<div className="App">
-			<Header changeDisplay={changeDisplay} />
+			<Header changeDisplay={changeDisplay} score={score} />
 			{newDisplay ? <NewGame getRandomInt={getRandomInt} /> : ''}
 
-			<Container players={players} chosenPlayer={chosenPlayer} />
-			{questionDisplay ? <Questions changeDisplay={changeDisplay} reducePlayers={reducePlayers} /> : ''}
+			<Container players={players} chosenPlayer={chosenPlayer} newScore={newScore} />
+			{questionDisplay ? (
+				<Questions changeDisplay={changeDisplay} reducePlayers={reducePlayers} newScore={newScore} />
+			) : (
+				''
+			)}
 		</div>
 	);
 }
