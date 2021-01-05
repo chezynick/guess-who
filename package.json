@@ -16,8 +16,12 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "web-vitals": "^0.2.4"
   },
+  "homepage": "https://chezynick.github.io/guess-who",
+
+
   "scripts": {
     "start": "craco start",
+    "deploy":"gh-pages -d build",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
