@@ -99,6 +99,9 @@ function App() {
 	//winner function
 	const weHaveAWinner = () => {
 		setWinner(true);
+		if (score > highScore) {
+			setHighScore(score);
+		}
 	};
 	const PlayAgain = () => {
 		setPlayers(Data);
@@ -109,7 +112,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header changeDisplay={changeDisplay} score={score} />
-			{newDisplay ? <NewGame getRandomInt={getRandomInt} /> : ''}
+			{newDisplay ? <NewGame getRandomInt={getRandomInt} highScore={highScore} /> : ''}
 			{winner ? (
 				<WinnerBox score={score} chosenPlayer={chosenPlayer} highScore={highScore} PlayAgain={PlayAgain} />
 			) : (

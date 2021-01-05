@@ -1,11 +1,12 @@
 import React from 'react';
-const NewGame = ({ getRandomInt }) => {
+const NewGame = ({ getRandomInt, highScore }) => {
 	return (
 		<div className="z-10 absolute w-full top-20 h-auto bg-red-600  text-white text-3xl flex flex-col items-center justify-evenly py-10">
 			<h1 className="font-body">Play new Game?</h1>
 			<button className="font-body py-4 " onClick={() => getRandomInt(1, 25)}>
 				Click Here!
 			</button>
+			<h3>Current High Score is {highScore}</h3>
 			<ul className="border-white border-2 list-disc list-inside p-5">
 				<h1>Rules</h1>
 				<li>Highest Score Wins</li>
