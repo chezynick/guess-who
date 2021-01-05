@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Data } from './Data';
-const Container = () => (
-	<div>
-		{Data.map((item) => (
-			<div>
-				<h1>{item.name}</h1>
-				<img src={item.image} alt="footballer pic" />
-			</div>
-		))}
-	</div>
-);
+import Card from './Card';
+const Container = ({ players, chosenPlayer }) => {
+	return (
+		<div className="w-full flex flex-wrap">
+			{players.map((item) => (
+				<Card player={item} key={item.id} chosenPlayer={chosenPlayer} />
+			))}
+		</div>
+	);
+};
 
 export default Container;

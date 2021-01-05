@@ -99,8 +99,8 @@ export const Data = [
 		moustache: true,
 		id: 7,
 		perm: false,
-		mullet: true,
-		sidies: false,
+		mullet: false,
+		sidies: true,
 		image: geoff,
 	},
 	{
