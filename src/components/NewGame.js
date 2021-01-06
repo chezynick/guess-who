@@ -1,7 +1,7 @@
 import React from 'react';
 const NewGame = ({ getRandomInt, highScore }) => {
 	return (
-		<div className="z-10 absolute w-full top-20 h-auto bg-red-600  text-white text-3xl flex flex-col items-center justify-evenly py-10">
+		<div className="z-10 absolute w-full top-20 h-auto bg-red-600  text-white  text-sm md:text-3xl flex flex-col items-center justify-evenly py-10">
 			<ul className="border-white border-2 list-disc list-inside p-5 mb-4">
 				<h1>Rules</h1>
 				<li>Identify the mystery player chosen at random</li>

@@ -35,6 +35,7 @@ function App() {
 			getRandomInt(1, 25);
 			setScore(300);
 			setWinner(false);
+			setNewDisplay(true);
 			alert('you lose');
 		}
 		return score;
