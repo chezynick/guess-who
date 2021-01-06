@@ -2,7 +2,7 @@ import React from 'react';
 
 const Questions = ({ changeDisplay, reducePlayers }) => {
 	return (
-		<div className="absolute z-5 top-12 w-full h-auto font-body flex flex-col items-center bg-red-600 text-white md:text-2xl">
+		<div className="absolute z-5  md:top-20 top-12 w-full h-auto font-body flex flex-col items-center bg-red-600 text-white md:text-2xl">
 			<h1>Does the player have a.....?</h1>
 			<div className="grid md:grid-cols-2 text-center gap-3 py-3">
 				<button onClick={() => reducePlayers('moustache')}>MOUSTACHE?</button>

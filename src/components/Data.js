@@ -116,7 +116,8 @@ export const Data = [
 	},
 	{
 		name: 'jerry',
-		hair: 'balding',
+		hair: 'brown',
+		balding: true,
 		beard: false,
 		moustache: false,
 		id: 9,
@@ -193,7 +194,8 @@ export const Data = [
 	},
 	{
 		name: 'peter',
-		hair: 'balding',
+		hair: 'brown',
+		balding: true,
 		beard: false,
 		moustache: false,
 		id: 16,
@@ -248,7 +250,8 @@ export const Data = [
 	},
 	{
 		name: 'bobby',
-		hair: 'balding',
+		hair: 'blonde',
+		balding: true,
 		beard: false,
 		moustache: false,
 		id: 21,
@@ -281,7 +284,7 @@ export const Data = [
 	},
 	{
 		name: 'jim',
-		hair: 'balding',
+		hair: 'brown',
 		beard: false,
 		moustache: false,
 		id: 24,

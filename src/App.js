@@ -30,7 +30,11 @@ function App() {
 	//score function
 	const newScore = (points) => {
 		setScore(score - points);
-		if (score <= 0) {
+		if (score <= 1) {
+			setPlayers(Data);
+			getRandomInt(1, 25);
+			setScore(300);
+			setWinner(false);
 			alert('you lose');
 		}
 		return score;
@@ -90,11 +94,25 @@ function App() {
 				setPlayers(result);
 			}
 			changeDisplay();
-		} else if (item === 'balding' || item === 'blonde' || item === 'brown') {
+		} else if (item === 'balding') {
+			if (chosenPlayer.balding === true) {
+				const result = players.filter((player) => player.balding === true);
+				setPlayers(result);
+			} else {
+				const result = players.filter((player) => player.balding === undefined);
+				setPlayers(result);
+			}
+			changeDisplay();
+		} else if (item === 'blonde' || item === 'brown') {
 			const result = players.filter((player) => player.hair === chosenPlayer.hair);
 			setPlayers(result);
 			changeDisplay();
 		}
+	};
+	//remove incorect guessed player
+	const removePlayer = (incorrect) => {
+		const result = players.filter((player) => incorrect !== player.name);
+		setPlayers(result);
 	};
 	//winner function
 	const weHaveAWinner = () => {
@@ -123,6 +141,7 @@ function App() {
 				chosenPlayer={chosenPlayer}
 				newScore={newScore}
 				weHaveAWinner={weHaveAWinner}
+				removePlayer={removePlayer}
 			/>
 			{questionDisplay ? (
 				<Questions changeDisplay={changeDisplay} reducePlayers={reducePlayers} newScore={newScore} />

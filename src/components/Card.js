@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Card = ({ player, chosenPlayer, newScore, weHaveAWinner }) => {
+const Card = ({ player, chosenPlayer, newScore, weHaveAWinner, removePlayer }) => {
 	const clickHandler = (player) => {
 		if (player === chosenPlayer.name) {
 			weHaveAWinner();
 		} else {
 			newScore(50);
+			removePlayer(player);
 		}
 	};
 
